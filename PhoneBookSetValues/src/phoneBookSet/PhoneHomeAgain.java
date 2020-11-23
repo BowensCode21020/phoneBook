@@ -19,10 +19,14 @@ public class PhoneHomeAgain {
 		
 		Address add1 = new Address("101 Hilldale Dr.", "Belleville", "IL", "62239");
 		Address add2 = new Address("623 Neosho Ln.", "St. Louis", "Mo", "63123");
+		// International Address
 		Address add3 = new Address("4A Jayabagashwari Marg", "Siphal", "NP", "N/A");
 		
+		
+		// address class to sort at this time as it extends into the person class
 		Person pers1 = new Person("Breanna", "Faye", "Ackermann", n1, add1);
 		Person pers2 = new Person("Jesse", "D", "Webb", n2, add2);
+		// No middle name parameter
 		Person pers3 = new Person("Dipak", "", "Galami", n3, add3);
 		
 		Person[] currentList = new Person[3];
@@ -31,18 +35,21 @@ public class PhoneHomeAgain {
 		currentList[1] = pers2;
 		currentList[2] = pers3;
 		
+		// Create a new object to hold the Person variable
 		Updates current = new Updates(currentList);
 
+		// This will call the menu method below and store the 'current' in parameters
+		// in order to use those values.
 		PhoneMenu(current);
 	}
 	public static void PhoneMenu (Updates storeInfo) {
 		
-		
+		// Create a Scanner object
 		Scanner input = new Scanner(System.in);
 		boolean userExit = false;
 		while (!userExit) {
 			
-			// Make a menu
+			// Make a menu and navigate options using the switch case statement.
 			
 			System.out.println("*********PHONE BOOK**********");
 			System.out.println("1. Add a new entry");
@@ -65,10 +72,16 @@ public class PhoneHomeAgain {
 				
 				break;
 			case 2:
-				System.out.print("Enter the telephone number of the person you wish to delete: ");
 				
+				System.out.print("Enter the telephone number of the person you wish to delete: ");
+				// all methods to store the delete function are located in the Updates class
+				// This simply inputs the telephone number
 				long phoneInp = input.nextLong();
-				storeInfo.removePerson(phoneInp);
+				if (phoneInp != 0) {
+					storeInfo.removePerson(phoneInp);
+				} else {
+					System.out.println("Please enter a phone number");
+				}
 				
 				
 				break;
@@ -85,28 +98,40 @@ public class PhoneHomeAgain {
 				input.nextLine();
 				
 				switch (choice2) {
-				
+				// sub menu created to help simplify the options for the user
 				case 1:
 					System.out.println("Enter the person's first name");
 					String searchFirst = input.next();
 					Person foundFirst = storeInfo.searchFirstName(searchFirst);
+					// conditional statement to see if user put something in
 					if (foundFirst != null) {
 						System.out.println(foundFirst.toString());
+					} else {
+						System.out.println("Please enter a name");
 					}
 					break;
 					
 				case 2:
 					System.out.println("Enter the person's last name");
 					String searchLast = input.nextLine();
-					storeInfo.searchLastName(searchLast);
+					Person foundLast = storeInfo.searchLastName(searchLast);
+					// conditional statement to see if user put something in
+					if (foundLast != null) {
+						System.out.println(foundLast.toString());
+					} else {
+						System.out.println("Please enter a name");
+					}
 					break;
 					
 				case 3:
 					System.out.println("Enter the person's full name");
 					String searchFull = input.nextLine();
 					Person foundFull = storeInfo.searchFullName(searchFull);
+					// conditional statement to see if user put something in
 					if (foundFull != null) {
 						System.out.println(foundFull.toString());
+					} else {
+						System.out.println("Please enter the person's full name");
 					}
 					break;	
 					

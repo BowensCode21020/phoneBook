@@ -11,11 +11,6 @@ public class Address {
 
 	public Address(String street, String city, String state, String zipcode) 
 	{
-		//this.streetName = streetName;
-//		this.setStreetName(streetName);
-//		this.setCity(city);
-//		this.setState(state);
-//		this.setZipcode(zipcode);
 		
 		this.street = street;
 		this.city = city;
@@ -40,7 +35,7 @@ public class Address {
 		}
 		this.street = nameStreet;
 	}
-	
+	// getter and setter setup for the values below
 	public String getCity() {
 		return this.city;
 	}
@@ -73,7 +68,7 @@ public class Address {
 	@Override
 	public String toString() {
 		return this.street + ", " + this.city + ", " + 
-	this.state + " " + this.zipcode;
+	this.state + ", " + this.zipcode;
 	}
 
 

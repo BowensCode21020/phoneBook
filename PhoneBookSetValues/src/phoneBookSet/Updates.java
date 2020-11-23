@@ -21,7 +21,7 @@ public class Updates {
 		Person newTemp = new Person();
 		newTemp.promptUserInfo();
 		
-		// Run 
+		// Run through the array
 		for(int i = 0; i < storage.length; i++) {
 			temp[i] = storage[i];
 		}
@@ -177,7 +177,8 @@ public class Updates {
 				break;
 			} 
 
-		}
+		} // parameters to check if name is not found, adjested to -1 as well as 
+		// the count to account for the variation in index value.
 		if (countFull == -1) {
 			System.out.println("Name not found");
 			return null;
