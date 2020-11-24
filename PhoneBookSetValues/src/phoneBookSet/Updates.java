@@ -14,22 +14,25 @@ public class Updates {
 	}
 
 	public void addPerson() {
-
-		Person[] temp = new Person[storage.length + 1];
 		
-		// Call the 'personInp' method
-		Person newTemp = new Person();
-		newTemp.promptUserInfo();
-		
-		// Run through the array
-		for(int i = 0; i < storage.length; i++) {
-			temp[i] = storage[i];
+		try {
+			Person[] temp = new Person[storage.length + 1];
+			
+			// Call the 'personInp' method
+			Person newTemp = new Person();
+			newTemp.promptUserInfo();
+				// Run through the array
+				for(int i = 0; i < storage.length; i++) {
+					temp[i] = storage[i];
+				}
+				
+				temp[temp.length - 1] = newTemp;
+				
+				storage = temp;
+		} catch (ArrayIndexOutOfBoundsException ex) {
+			System.out.println("Exception: " + ex.toString());
 		}
-		
-		temp[temp.length - 1] = newTemp;
-		
-		storage = temp;
-		
+				
 	}
 	// by telephone option, 
 	public void removePerson(long phoneNumToRemove) {
