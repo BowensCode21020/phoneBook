@@ -68,8 +68,11 @@ public class PhoneHomeAgain {
 				// store info goes in and makes makes a new person, then it prompt the user
 				// It takes the values to the updates section.
 				storeInfo.addPerson();
-				storeInfo.getInfo();
 				
+				// 11/25, put the string between menu
+				System.out.println("\n************RESULT***********\n");
+				storeInfo.getInfo();
+				System.out.println("\n**********THANK YOU!*********\n");
 				break;
 			case 2:
 				

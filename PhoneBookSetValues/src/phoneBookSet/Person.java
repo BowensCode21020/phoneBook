@@ -23,7 +23,7 @@ public class Person{
 		this.address = address;
 		this.phoneNum = phoneNum;
 	}
-	
+	// Setters and getters line 26-67
 	public String getFirstName() {
 		return firstName;
 	}
@@ -102,7 +102,7 @@ public class Person{
 				
 				long phoneNum = Long.parseLong(fullArray[5].trim());
 				Address addressInp = new Address(street, city, state, zip);
-			//	Person personInp = new Person(firstName, middleName, lastName, phoneNum, addressInp);
+				
 				this.firstName = firstName;
 				this.midName = middleName;
 				this.lastName = lastName;
@@ -121,7 +121,7 @@ public class Person{
 	@Override
 	public String toString() {
 		// format phone number, the string accounts for the values that are
-		// left behind, the 'trailing zeros'.
+		// left behind, the 'leading zeros'.
 		DecimalFormat phoneFormat = new DecimalFormat("0000000000");
 		String phoneNumStr =phoneFormat.format(phoneNum);
 		
@@ -134,8 +134,10 @@ public class Person{
 			String lastFormat = phoneNewFormat.format(phoneArray);
 			
 			// Update 11/23/20: Let's make this a bit nicer looking
-		String printPersonInfo = "\n************RESULT***********\n" + "NAME: " + this.lastName + ", " + this.firstName + " " + this.midName + 
-				" \nCURRENT ADDRESS: " + address.toString() + "\nCURRENT TELEPHONE NUMBER: " + lastFormat + "\n**********THANK YOU!*********\n";
+			
+		String printPersonInfo = "NAME: " + this.lastName + ", " + this.firstName + " " + this.midName + 
+				" \nCURRENT ADDRESS: " + address.toString() + "\nCURRENT TELEPHONE NUMBER: " + lastFormat;
+		
 		return printPersonInfo;
 	}
 }
