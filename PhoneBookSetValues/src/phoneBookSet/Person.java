@@ -74,8 +74,11 @@ public class Person{
 		try {
 			Scanner input = new Scanner(System.in);
 			
+			// The name splits at the whitespace entered, not the comma necessarily, need to either adjust
+			// for commas by extending the array length, or inform the user to not use commas
+			// in the program itself when typing in the name.
 			System.out.println("Enter the name, address, and phone number, separated by commas: ");
-			System.out.println("Ex: John, Doe, 114 Market St, St. Louis, MO, 63403, 6366435698");
+			System.out.println("Ex: John Doe, 114 Market St, St. Louis, MO, 63403, 6366435698");
 			
 			String inpInfo = input.nextLine();
 			
